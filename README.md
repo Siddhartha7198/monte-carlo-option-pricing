@@ -43,7 +43,7 @@ $dS_t = r S_t dt + \sigma S_t dW_t$
 
 Under this assumption, the terminal stock price distribution is:
 
-$S_T = S_0 * e^((r - 0.5\sigma^2)T + \sigma\sqrt{T} Z)$
+$S_T = S_0 * e^{((r - 0.5\sigma^2)T + \sigma\sqrt{T} Z)}$
 
 where:
 - $Z \sim \mathcal{N}(0,1)$
@@ -77,13 +77,13 @@ $\hat{C} = e^{-rT} * (1/N) \sum max(S^{(i)}_T - K, 0)$
 
 By the Law of Large Numbers:
 
-$\hat{C} \rightarrow C$ as N \rightarrow \infty$
+$\hat{C} \rightarrow C$ as $N \rightarrow \infty$
 
 The standard error is:
 
 $SE = \hat{\sigma}/ \sqrt{N}$
 
-Convergence rate: \mathcal{O}(1/\sqrt{N})
+Convergence rate: $\mathcal{O}(1/\sqrt{N})$
 
 ### References
 
@@ -148,7 +148,7 @@ Since European options admit closed-form pricing, Monte Carlo results are compar
 
 Black–Scholes formula:
 
-$C = S_0 N(d1) - K e^{-rT} N(d2)$
+$C = S_0 N(d_1) - K e^{-rT} N(d_2)$
 
 Metrics evaluated:
 
@@ -174,8 +174,8 @@ Limitations of these assumptions are discussed in the conclusion.
 
 ## 9. Computational Considerations
 
-- Complexity: \mathcal{O}(N)
-- Convergence rate: \mathcal{O}(1/\sqrt{N})
+- Complexity: $\mathcal{O}(N)$
+- Convergence rate: $\mathcal{O}(1/\sqrt{N})$
 - Fully vectorized implementation
 - Random seed for reproducibility
 - Memory-efficient simulation
