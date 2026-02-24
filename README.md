@@ -11,8 +11,6 @@ The study includes:
 - Benchmark comparison against Black–Scholes
 - Sensitivity analysis with respect to volatility and time to maturity
 
-This project is structured as a reproducible quantitative research report.
-
 ---
 
 ## 1. Motivation and Practical Relevance
@@ -41,21 +39,21 @@ Its flexibility makes it a core computational tool in financial engineering and 
 
 We assume the underlying asset follows a Geometric Brownian Motion (GBM) under the risk-neutral probability measure:
 
-dS_t = r S_t dt + σ S_t dW_t
+$dS_t = r S_t dt + \sigma S_t dW_t$
 
 Under this assumption, the terminal stock price distribution is:
 
-S_T = S_0 * exp((r - 0.5σ²)T + σ√T Z)
+$S_T = S_0 * e^((r - 0.5\sigma^2)T + \sigma\sqrt{T} Z)$
 
 where:
-- Z ~ N(0,1)
+- $Z \sim \mathcal{N}(0,1)$
 - r is the risk-free rate
-- σ is volatility
+- $\sigma$ is volatility
 - T is time to maturity
 
 The arbitrage-free price of a European call option is:
 
-C = e^{-rT} E_Q[max(S_T - K, 0)]
+$C = e^{-rT} \mathbb{E}_Q[max(S_T - K, 0)]$
 
 This expectation is approximated numerically via simulation.
 
@@ -69,23 +67,23 @@ Under the risk-neutral measure Q, all assets earn the risk-free rate in expectat
 
 Option price:
 
-V_0 = e^{-rT} E_Q[Payoff]
+$V_0 = e^{-rT} \mathbb{E}_Q[Payoff]$
 
 ### 3.2 Monte Carlo Estimator
 
 For N simulations:
 
-Ĉ = e^{-rT} * (1/N) Σ max(S_T^{(i)} - K, 0)
+$\hat{C} = e^{-rT} * (1/N) \sum max(S^{(i)}_T - K, 0)$
 
 By the Law of Large Numbers:
 
-Ĉ → C as N → ∞
+$\hat{C} \rightarrow C$ as N \rightarrow \infty$
 
 The standard error is:
 
-SE = σ̂ / √N
+$SE = \hat{\sigma}/ \sqrt{N}$
 
-Convergence rate: O(1/√N)
+Convergence rate: \mathcal{O}(1/\sqrt{N})
 
 ### References
 
@@ -100,10 +98,10 @@ Convergence rate: O(1/√N)
 For European option pricing under GBM, no historical dataset is required.
 
 Inputs:
-- Initial price (S₀)
+- Initial price ($S_0$)
 - Strike (K)
 - Risk-free rate (r)
-- Volatility (σ)
+- Volatility ($\sigma$)
 - Time to maturity (T)
 
 For benchmarking against market data, volatility may be estimated from historical returns.
@@ -150,7 +148,7 @@ Since European options admit closed-form pricing, Monte Carlo results are compar
 
 Black–Scholes formula:
 
-C = S_0 N(d1) - K e^{-rT} N(d2)
+$C = S_0 N(d1) - K e^{-rT} N(d2)$
 
 Metrics evaluated:
 
@@ -176,8 +174,8 @@ Limitations of these assumptions are discussed in the conclusion.
 
 ## 9. Computational Considerations
 
-- Complexity: O(N)
-- Convergence rate: O(1/√N)
+- Complexity: \mathcal{O}(N)
+- Convergence rate: \mathcal{O}(1/\sqrt{N})
 - Fully vectorized implementation
 - Random seed for reproducibility
 - Memory-efficient simulation
