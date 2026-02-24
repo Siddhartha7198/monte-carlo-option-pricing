@@ -184,6 +184,15 @@ Limitations of these assumptions are discussed in the conclusion.
 
 ## 10. Results and Interpretation
 
+Summary:
+
+- Monte Carlo converges at $\mathcal{O}(1/\sqrt{N})$
+- Antithetic variates reduce variance moderately
+- Control variates reduce variance dramatically
+- Sobol improves convergence in low dimension
+- Pathwise Greeks match analytical results
+- Runtime scales linearly
+
 Key observations:
 
 - Monte Carlo converges slowly relative to closed-form pricing.
